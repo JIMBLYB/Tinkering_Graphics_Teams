@@ -1,4 +1,5 @@
 import pygame
+from pygame.tests.test_utils import png
 
 pygame.init()
 
@@ -13,7 +14,7 @@ GREEN = (0, 255, 0)
 ORANGE = (255, 165, 0)
 
 
-def make_surface_less_red(surface=pygame.Surface((1, 1))):
+def entity_colour_change(surface=pygame.Surface((1, 1))):
     pixel = pygame.Color(0, 0, 0)
     for x in range(surface.get_width()):
         for y in range(surface.get_height()):
@@ -24,7 +25,8 @@ def make_surface_less_red(surface=pygame.Surface((1, 1))):
             )
 
 
-make_surface_less_red(my_sprite)
+entity_colour_change(my_sprite)
+pygame.image.save(my_sprite, 'main.png')
 
 running = True
 while running:

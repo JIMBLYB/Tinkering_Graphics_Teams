@@ -3,18 +3,19 @@ pygame.init()
 
 main_window = pygame.display.set_mode((1120, 630))
 
-DECREASE_RED_BY = 255
+DECREASE_BY = 255
 
 
 def decreased_red():
     for x in range(0, pic.get_width()):
         for y in range(0, pic.get_height()):
             colour_to_change = pic.get_at((x, y))
-            if colour_to_change[0] < DECREASE_RED_BY:
+            if colour_to_change[0] < DECREASE_BY:
                 colour_to_change[0] = 0
-            elif colour_to_change[0] >= DECREASE_RED_BY:
-                colour_to_change[0] -= DECREASE_RED_BY
+            elif colour_to_change[0] >= DECREASE_BY:
+                colour_to_change[0] -= DECREASE_BY
             pic.set_at((x, y), colour_to_change)
+            print(colour_to_change)
 
 
 pic = pygame.image.load("pic.jpg").convert()

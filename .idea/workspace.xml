@@ -4,7 +4,6 @@
     <list default="true" id="1f6418dd-7a5f-4f10-8c43-31831229edc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Contract #5/Simulating Colorblindness.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contract #5/Simulating Colorblindness.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contract #5/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Contract #5/Test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +39,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Test">
+  <component name="RunManager" selected="Python.Simulating Colorblindness">
     <configuration name="Simulating Colorblindness" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Tinkering_Graphics_Teams" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,8 +84,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Test" />
         <item itemvalue="Python.Simulating Colorblindness" />
+        <item itemvalue="Python.Test" />
       </list>
     </recent_temporary>
   </component>

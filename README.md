@@ -10,6 +10,11 @@ TBA as each project is ready for use
 
 ## Contributing
 
+Contrubutions are **Only** accepted from the users listed below
++ JIMBLYB       (James Berry)
++ JBroughton2   (Joseph Broughton)
++ KalvinMalloch (Kalvin Malloch)
+
 **Pull requests will be _ignored_** as this is part of a formative submission for a university project
 
 ## License

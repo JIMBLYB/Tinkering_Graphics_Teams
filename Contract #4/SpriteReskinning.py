@@ -1,4 +1,5 @@
 import pygame
+from pygame.tests.test_utils import png
 
 pygame.init()
 
@@ -25,6 +26,7 @@ def entity_colour_change(surface=pygame.Surface((1, 1))):
 
 
 entity_colour_change(my_sprite)
+pygame.image.save(my_sprite, 'main.png')
 
 running = True
 while running:

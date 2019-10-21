@@ -1,15 +1,31 @@
 import pygame
 
-map_width = 800
-map_height = 600
+map_width = 32
+map_height = 16
 cell_size = 32
 
-brick = pygame.image.load('Stone.png')
-water = pygame.image.load('Water.png')
-well = pygame.image.load('Well.png')
-shrine = pygame.image.load('Shrine.png')
+##brick = pygame.image.load('Stone.png')
+##water = pygame.image.load('Water.png')
+##well = pygame.image.load('Well.png')
+##shrine = pygame.image.load('Shrine.png')
 
-tilemap = [brick]
+testRed = (200, 0, 0)
+testBlue = (0, 200, 0)
+testGreen = (0, 0, 200)
+
+red = 0
+blue = 1
+green = 2
+
+testBlocks = {
+    red: testRed,
+    blue: testBlue,
+    green: testGreen
+}
+
+tilemap = [
+    [red, blue, green],
+]
 
 pygame.init()
 map_display = pygame.display.set_mode ((map_width, map_height))
@@ -23,8 +39,7 @@ def map_running():
 
         for row in range(map_height):
             for column in range(map_width):
-                pygame.draw.rect(map_display, [tilemap[row][column]],
-                                 (column * cell_size, row * cell_size, cell_size, cell_size))
+                pygame.draw.rect(map_display, testBlocks[tilemap[row][column]], (column * cell_size, row * cell_size, cell_size, cell_size))
         pygame.display.update()
 
     pygame.quit()

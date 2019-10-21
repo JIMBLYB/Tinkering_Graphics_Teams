@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="323d1b8b-e143-407f-ae70-3dc088eba357" name="Default Changelist" comment="" />
+    <list default="true" id="f0a6cca8-afe2-4589-8fb2-3924bfba7bc8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,20 +18,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1STOxQMtLkKBE8NeZByAvqgnoHs" />
+  <component name="ProjectId" id="1SX0Ubgo96S3hU4sj9mLE4iSRHg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\kingk\Desktop\PythonProjects\Images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kingk\Desktop\PythonProjects" />
-      <recent name="C:\Users\kingk\Desktop\PythonProjects\Images" />
+      <recent name="C:\Users\kingk\Documents\GitHub\Tinkering_Graphics_Teams\Contract #2 Kalvin Malloch V2" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -47,8 +42,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="PythonProjects" />
+    <configuration name="Contract2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Contract #2 Kalvin Malloch V2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -60,7 +55,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\kingk\Desktop\PythonProjects\Test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Contract2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -71,7 +66,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Test" />
+        <item itemvalue="Python.Contract2" />
       </list>
     </recent_temporary>
   </component>
@@ -80,16 +75,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="323d1b8b-e143-407f-ae70-3dc088eba357" name="Default Changelist" comment="" />
-      <created>1571584364946</created>
+      <changelist id="f0a6cca8-afe2-4589-8fb2-3924bfba7bc8" name="Default Changelist" comment="" />
+      <created>1571694649494</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571584364946</updated>
-      <workItem from="1571584366159" duration="7947000" />
-      <workItem from="1571608486774" duration="1515000" />
-      <workItem from="1571610688475" duration="2212000" />
-      <workItem from="1571659187257" duration="5674000" />
-      <workItem from="1571694403502" duration="917000" />
+      <updated>1571694649494</updated>
+      <workItem from="1571694666971" duration="2635000" />
     </task>
     <servers />
   </component>
@@ -108,6 +99,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PythonProjects$Test.coverage" NAME="Test Coverage Results" MODIFIED="1571664541165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Contract__2_Kalvin_Malloch_V2$Contract2.coverage" NAME="Contract2 Coverage Results" MODIFIED="1571697276853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

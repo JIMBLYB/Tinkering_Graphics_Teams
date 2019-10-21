@@ -1,10 +1,15 @@
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 import numpy as np
-from skimage import data, img_as_float
+from skimage import data
 from skimage import exposure
 
-img = data.moon()
-gamma_corrected = exposure.adjust_gamma(img,  0, 1)
-plt.imshow(img)
+# Converts image into a numpy array
+img = mpimg.imread("pic.jpg")
+gamma_corrected = exposure.adjust_gamma(img, 1)
+img_plot = plt.imshow(gamma_corrected)
+plt.show()
+
+
 

@@ -20,7 +20,7 @@ def make_surface_less_red(surface=pygame.Surface((1, 1))):
             pixel = surface.get_at((x, y))
             surface.set_at(
                 (x, y),
-                pygame.Color(int(pixel.r), int(pixel.g * 0.5), int(pixel.b))
+                pygame.Color(int(pixel.r), int(pixel.g * 0.10), int(pixel.b))
             )
 
 
@@ -32,7 +32,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    main.fill(BLACK)
+    main.fill(WHITE)
     main.blit(my_sprite, (0, 0))
     pygame.display.update()
 

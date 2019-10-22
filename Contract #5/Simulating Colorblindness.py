@@ -5,10 +5,15 @@ import numpy as np
 from skimage import data
 from skimage import exposure
 
-# Converts image into a numpy array
+NEW_GAMMA = 1
+
+# Converts image into an ndarray
 img = mpimg.imread("pic.jpg")
-gamma_corrected = exposure.adjust_gamma(img, 1)
-img_plot = plt.imshow(gamma_corrected)
+print(img)
+
+# Changes the gamma in the "img" ndarray
+gamma_corrected = exposure.adjust_gamma(img, NEW_GAMMA)
+img_plot = plt.imshow(img)
 plt.show()
 
 

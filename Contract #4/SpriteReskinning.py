@@ -1,3 +1,4 @@
+# This script has been made by Joseph Broughton.
 import pygame
 from pygame.tests.test_utils import png
 
@@ -11,9 +12,6 @@ my_sprite = pygame.image.load('Platform.png').convert()
 
 # colours
 WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-GREEN = (0, 255, 0)
-ORANGE = (255, 165, 0)
 
 
 # This function will get the x and y pixels and then set them to a different colour.

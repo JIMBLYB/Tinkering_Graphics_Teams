@@ -1,5 +1,0 @@
-[MatPlotLib Tutorial Series](https://www.youtube.com/playlist?list=PLQVvvaa0QuDfefDfXb9Yf0la1fPDKluPF)  
-[MatPlotLib Documentation](https://matplotlib.org/)  
-[Protanopia Information](https://www.color-blindness.com/protanopia-red-green-color-blindness/)  
-[Color Blindness Simulation Research](https://ixora.io/projects/colorblindness/color-blindness-simulation-research/)  
-[Gamma Adjustment](https://scikit-image.org/docs/dev/auto_examples/color_exposure/plot_log_gamma.html)  

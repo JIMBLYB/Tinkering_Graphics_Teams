@@ -2,7 +2,7 @@ Scripts made by James Berry
 # Aim
 This is a program that will take an _**input image**_ and _**create 8 new images**_ simulating what the input image would look like to people with certain color blindnesses.
 ### Current Outputs
-The output images are named: "img_" + type of colorblindness and are saved as a .jpg image file.
+The output images are named: "_img_" + type of colorblindness and are saved as a .jpg image file.
 The colorblindnesses currently represented are
 * Protanopia
 * Protanomaly

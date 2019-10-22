@@ -1,5 +1,7 @@
 # COMP 120 - Tinkering Graphics Assignment
 
+[Link to main repository.](https://github.com/JIMBLYB/Tinkering_Graphics_Teams)
+
 ## Python Code for Adjusting Graphics
 This repositiory is a collection of multiple projects as part of the COM120 module at Falmouth University. The contracts attempted currently are _Platform Level Generator_ by Kalvin, _Platformer Entity Reskinning_ by Joe and _Colour Blindness User Interface Analysis Tool_ by James. Pair programming was practiced where appropriate
 

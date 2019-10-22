@@ -24,3 +24,7 @@ testBlocks = {
 tilemap = [
     [red, blue, green],
 ]
+
+#
+# All of this should be fine if it was in the main script, I don't see why it isn't
+#

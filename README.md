@@ -17,4 +17,4 @@ The sprite you want to edit must be in the folder with the script, once this is 
 Project is not at a level to be used yet
 
 ## License
-The [MIT license](https://choosealicense.com/licenses/mit/) was chosen as it grants the free use of our work to anyone who wants it while still retaining our attribution to the work in any copies made in all uses including commercial. This means that our code can be taken and modified for any use while still aknowledging our contributions to the work.
+The [MIT license](https://choosealicense.com/licenses/mit/) was chosen as it grants the free use of our work to anyone who wants it while still retaining our attribution to the work in any copies made in all uses including commercial. This means that our code can be taken and modified for any use while still acknowledging our contributions to the work.

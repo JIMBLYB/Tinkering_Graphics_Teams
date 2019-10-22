@@ -1,33 +1,10 @@
-import pygame
-pygame.init()
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
 
-main_window = pygame.display.set_mode((1120, 630))
+fig = plt.figure()
+fig.suptitle('No axes on this figure')
 
-DECREASE_BY = 255
+fig, ax_lst = plt.subplots(2, 2)
 
-
-def decreased_red():
-    for x in range(0, pic.get_width()):
-        for y in range(0, pic.get_height()):
-            colour_to_change = pic.get_at((x, y))
-            if colour_to_change[0] < DECREASE_BY:
-                colour_to_change[0] = 0
-            elif colour_to_change[0] >= DECREASE_BY:
-                colour_to_change[0] -= DECREASE_BY
-            pic.set_at((x, y), colour_to_change)
-            print(colour_to_change)
-
-
-pic = pygame.image.load("pic.jpg").convert()
-decreased_red()
-
-main_window.fill((255, 255, 255))
-main_window.blit(pic, (0, 0))
-
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
-
-    pygame.display.update()
+plt.show()

@@ -1,22 +1,18 @@
-# COMP 120 - Tinkering Graphics Contracts
+# COMP 120 - Tinkering Graphics Assignment
 
-This repositiory is a collection of multiple projects,
-each of which is attempting a solution to a different contract in the COMP 120
+## Python Code for Adjusting Graphics
+This repositiory is a collection of multiple projects as part of the COM120 module at Falmouth University. The contracts attempted currently are _Platform Level Generator_ by Kalvin, _Platformer Entity Reskinning_ by Joe and _Colour Blindness User Interface Analysis Tool_ by James. Pair programming was practiced where appropriate
 
-## Usage
+## Instructions
 
-TBA as each project is ready for use
+### Platform Level Generator
+Project is not at a level to be used yet
 
+### Platformer Entity Reskinning
+Currently the script will take the sprite you give it and reduce certain colours to make a new looking sprite, it needs a little editing till it can change to a specific colour but the basic code is there. After changing the sprite the script will sucessfully save the new sprite as a png.
 
-## Contributing
-
-Contrubutions are **Only** accepted from the users listed below
-+ JIMBLYB       (James Berry)
-+ JBroughton2   (Joseph Broughton)
-+ KalvinMalloch (Kalvin Malloch)
-
-**Pull requests will be _ignored_** as this is part of a formative submission for a university project
+### Colour Blindness User Interface Analysis Tool
+Project is not at a level to be used yet
 
 ## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+The [MIT license](https://choosealicense.com/licenses/mit/) was chosen as it grants the free use of our work to anyone who wants it while still retaining our attribution to the work in any copies made in all uses including commercial. This means that our code can be taken and modified for any use while still aknowledging our contributions to the work.

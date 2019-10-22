@@ -24,6 +24,7 @@ def entity_colour_change(surface=pygame.Surface((1, 1))):
             pixel = surface.get_at((x, y))
             surface.set_at(
                 (x, y),
+                # This is the line that actually changes the colours, 0-1 means there's less colour and 1-2 is more.
                 pygame.Color(int(pixel.r * 2), int(pixel.g * 0.40), int(pixel.b * 0.10))
             )
 

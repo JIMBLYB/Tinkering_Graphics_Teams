@@ -1,5 +1,7 @@
 # COMP 120 - Tinkering Graphics Assignment
 
+[Link to main repository.](https://github.com/JIMBLYB/Tinkering_Graphics_Teams)
+
 ## Python Code for Adjusting Graphics
 This repositiory is a collection of multiple projects as part of the COM120 module at Falmouth University. The contracts attempted currently are _Platform Level Generator_ by Kalvin, _Platformer Entity Reskinning_ by Joe and _Colour Blindness User Interface Analysis Tool_ by James. Pair programming was practiced where appropriate
 
@@ -9,7 +11,7 @@ This repositiory is a collection of multiple projects as part of the COM120 modu
 Project is not at a level to be used yet
 
 ### Platformer Entity Reskinning
-Currently the script will take the sprite you give it and reduce certain colours to make a new looking sprite, it needs a little editing till it can change to a specific colour but the basic code is there. After changing the sprite the script will sucessfully save the new sprite as a png.
+The sprite you want to edit must be in the folder with the script, once this is done edit the script to have the sprites name and file type in the my_sprite variable. To change the colours you edit the numbers in the entity_colour_change function, this will now run and save the new sprite to the folder.
 
 ### Colour Blindness User Interface Analysis Tool
 Project is not at a level to be used yet

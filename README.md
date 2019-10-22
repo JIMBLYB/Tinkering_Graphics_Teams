@@ -9,7 +9,7 @@ This repositiory is a collection of multiple projects as part of the COM120 modu
 Project is not at a level to be used yet
 
 ### Platformer Entity Reskinning
-Project is not at a level to be used yet
+Currently the script will take the sprite you give it and reduce certain colours to make a new looking sprite, it needs a little editing till it can change to a specific colour but the basic code is there. After changing the sprite the script will sucessfully save the new sprite as a png.
 
 ### Colour Blindness User Interface Analysis Tool
 Project is not at a level to be used yet

@@ -1,9 +1,10 @@
+import pygame
 
 # Includes all textures.
-#brick = pygame.image.load('Stone.png')
-#water = pygame.image.load('Water.png')
-#well = pygame.image.load('Well.png')
-#shrine = pygame.image.load('Shrine.png')
+brick = pygame.image.load('Stone.png')
+water = pygame.image.load('Water.png')
+well = pygame.image.load('Well.png')
+shrine = pygame.image.load('Shrine.png')
 
 # Testing out colours instead of images to begin with.
 testRed = (200, 0, 0)

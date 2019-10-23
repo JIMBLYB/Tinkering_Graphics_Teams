@@ -13,6 +13,6 @@ The colorblindnesses currently represented are
 * Achromatopsia
 * Achromatanomaly
 ## Setup
-The project **requires** the **pygame** module installed
+The project **requires** the **pygame** module installed on whichever environment you run this on
 ## Usage
 Put an image named "_pic.jpg_" into the same directory as the python script, then run the script. If it worked then it should open a pygame window with the image you saved shown on it. The output images are saved to the same directory as the original image

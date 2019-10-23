@@ -1,22 +1,21 @@
 import pygame
+import time
 pygame.init()
 
 # Initialises the variable used for the main game loop
 running = True
 # Creates a display object
-main_window = pygame.display.set_mode((369, 193))
+main_window = pygame.display.set_mode((1, 1))
 # Imports the image and converts it to prevent reading errors
 img = pygame.image.load("pic.jpg").convert()
+main_window = pygame.display.set_mode((img.get_width(), img.get_height()))
 
-# Initialises all the variables for the processed images with the unedited image
-img_protanopia = img
-img_protanomaly = img
-img_deutaranopia = img
-img_deutaranomaly = img
-img_tritanopia = img
-img_tritanomaly = img
-img_achromatopsia = img
-img_achromatanomaly = img
+# Initialises the variable for the processed images with the unedited image
+img_processed = img
+# List of processed images to cycle through and the number to show each time
+image_to_show = 0
+processed_images = ["pic.jpg", "protanopia.jpg", "protanomaly.jpg", "deutaranopia.jpg", "deutaranomaly.jpg", "tritanopia.jpg",
+                    "tritanomaly.jpg", "achromatopsia.jpg", "achromatanomaly.jpg"]
 
 # Non-colorblind value
 NORMAL = [[100, 0, 0], [0, 100, 0], [0, 0, 100]]
@@ -34,16 +33,16 @@ DEUTERANOMALY = [[80, 20, 0], [25.883, 74.167, 0], [0, 14.167, 85.833]]
 # Blue blind
 TRITANOPIA = [[95, 5, 0], [0, 43.333, 56.667], [0, 47.5, 52.5]]
 # Blue weakness
-TRITANOMALY = [[96.667, 3.333, 0],[0, 73.333, 26.667], [0, 18.333, 81.667]]
+TRITANOMALY = [[96.667, 3.333, 0], [0, 73.333, 26.667], [0, 18.333, 81.667]]
 
 # Full color blindness (monochrome)
 ACHROMATOPSIA = [[29.9, 58.7, 11.4], [29.9, 58.7, 11.4], [29.9, 58.7, 11.4]]
 # Full Color weakness
-ACHROMATANOMALY = [[61.8, 32,    6.2], [16.3, 77.5,  6.2], [16.3, 32.0, 51.6]]
+ACHROMATANOMALY = [[61.8, 32, 6.2], [16.3, 77.5,  6.2], [16.3, 32.0, 51.6]]
 
 
 # Adjusts colour values by appropriate matrix (PROTANOPIA)
-def protanopia():
+def colorblind(colour_matrix):
     # Runs indented code for every pixel of the input image
     for x in range(img.get_width()):
         for y in range(img.get_height()):
@@ -56,230 +55,41 @@ def protanopia():
             pixel_b = pixel_input[2]
 
             # Adjusts the RGB values of each individual pixel to the RGB values of the correct impairment
-            pixel_r = int((pixel_r * PROTANOPIA[0][0] / 100) +
-                          (pixel_g * PROTANOPIA[0][1] / 100) +
-                          (pixel_b * PROTANOPIA[0][2] / 100))
+            pixel_r = int((pixel_r * colour_matrix[0][0] / 100) +
+                          (pixel_g * colour_matrix[0][1] / 100) +
+                          (pixel_b * colour_matrix[0][2] / 100))
 
-            pixel_g = int((pixel_r * PROTANOPIA[1][0] / 100) +
-                          (pixel_g * PROTANOPIA[1][1] / 100) +
-                          (pixel_b * PROTANOPIA[1][2] / 100))
+            pixel_g = int((pixel_r * colour_matrix[1][0] / 100) +
+                          (pixel_g * colour_matrix[1][1] / 100) +
+                          (pixel_b * colour_matrix[1][2] / 100))
 
-            pixel_b = int((pixel_r * PROTANOPIA[2][0] / 100) +
-                          (pixel_g * PROTANOPIA[2][1] / 100) +
-                          (pixel_b * PROTANOPIA[2][2] / 100))
-
-            # Adds the color-adjusted pixel to the output surface
-            img_protanopia.set_at((x, y), (pixel_r, pixel_g, pixel_b))
-
-
-# Adjust color values by appropriate matrix (PROTANOMALY)
-def protanomaly():
-    for x in range(img.get_width()):
-        for y in range(img.get_height()):
-            pixel_input = img.get_at((x, y))
-
-            pixel_r = pixel_input[0]
-            pixel_g = pixel_input[1]
-            pixel_b = pixel_input[2]
-
-            # Adjusts the RGB values of each individual pixel to the RGB values of the correct impairment
-            pixel_r = int((pixel_r * PROTANOMALY[0][0] / 100) +
-                          (pixel_g * PROTANOMALY[0][1] / 100) +
-                          (pixel_b * PROTANOMALY[0][2] / 100))
-
-            pixel_g = int((pixel_r * PROTANOMALY[1][0] / 100) +
-                          (pixel_g * PROTANOMALY[1][1] / 100) +
-                          (pixel_b * PROTANOMALY[1][2] / 100))
-
-            pixel_b = int((pixel_r * PROTANOMALY[2][0] / 100) +
-                          (pixel_g * PROTANOMALY[2][1] / 100) +
-                          (pixel_b * PROTANOMALY[2][2] / 100))
+            pixel_b = int((pixel_r * colour_matrix[2][0] / 100) +
+                          (pixel_g * colour_matrix[2][1] / 100) +
+                          (pixel_b * colour_matrix[2][2] / 100))
 
             # Adds the color-adjusted pixel to the output surface
-            img_protanomaly.set_at((x, y), (pixel_r, pixel_g, pixel_b))
-
-
-# Adjust color values by appropriate matrix (DEUTARANOPIA)
-def deutaranopia():
-    for x in range(img.get_width()):
-        for y in range(img.get_height()):
-            pixel_input = img.get_at((x, y))
-
-            pixel_r = pixel_input[0]
-            pixel_g = pixel_input[1]
-            pixel_b = pixel_input[2]
-
-            # Adjusts the RGB values of each individual pixel to the RGB values of the correct impairment
-            pixel_r = int((pixel_r * DEUTERANOPIA[0][0] / 100) +
-                          (pixel_g * DEUTERANOPIA[0][1] / 100) +
-                          (pixel_b * DEUTERANOPIA[0][2] / 100))
-
-            pixel_g = int((pixel_r * DEUTERANOPIA[1][0] / 100) +
-                          (pixel_g * DEUTERANOPIA[1][1] / 100) +
-                          (pixel_b * DEUTERANOPIA[1][2] / 100))
-
-            pixel_b = int((pixel_r * DEUTERANOPIA[2][0] / 100) +
-                          (pixel_g * DEUTERANOPIA[2][1] / 100) +
-                          (pixel_b * DEUTERANOPIA[2][2] / 100))
-
-            # Adds the color-adjusted pixel to the output surface
-            img_deutaranopia.set_at((x, y), (pixel_r, pixel_g, pixel_b))
-
-
-# Adjust color values by appropriate matrix (DEUTARANOMALY)
-def deutaranomaly():
-    for x in range(img.get_width()):
-        for y in range(img.get_height()):
-            pixel_input = img.get_at((x, y))
-
-            pixel_r = pixel_input[0]
-            pixel_g = pixel_input[1]
-            pixel_b = pixel_input[2]
-
-            # Adjusts the RGB values of each individual pixel to the RGB values of the correct impairment
-            pixel_r = int((pixel_r * DEUTERANOMALY[0][0] / 100) +
-                          (pixel_g * DEUTERANOMALY[0][1] / 100) +
-                          (pixel_b * DEUTERANOMALY[0][2] / 100))
-
-            pixel_g = int((pixel_r * DEUTERANOMALY[1][0] / 100) +
-                          (pixel_g * DEUTERANOMALY[1][1] / 100) +
-                          (pixel_b * DEUTERANOMALY[1][2] / 100))
-
-            pixel_b = int((pixel_r * DEUTERANOMALY[2][0] / 100) +
-                          (pixel_g * DEUTERANOMALY[2][1] / 100) +
-                          (pixel_b * DEUTERANOMALY[2][2] / 100))
-
-            # Adds the color-adjusted pixel to the output surface
-            img_deutaranomaly.set_at((x, y), (pixel_r, pixel_g, pixel_b))
-
-
-# Adjust color values by appropriate matrix (TRITANOPIA)
-def tritanopia():
-    for x in range(img.get_width()):
-        for y in range(img.get_height()):
-            pixel_input = img.get_at((x, y))
-            
-            pixel_r = pixel_input[0]
-            pixel_g = pixel_input[1]
-            pixel_b = pixel_input[2]
-
-            # Adjusts the RGB values of each individual pixel to the RGB values of the correct impairment
-            pixel_r = int((pixel_r * TRITANOPIA[0][0] / 100) +
-                          (pixel_g * TRITANOPIA[0][1] / 100) +
-                          (pixel_b * TRITANOPIA[0][2] / 100))
-
-            pixel_g = int((pixel_r * TRITANOPIA[1][0] / 100) +
-                          (pixel_g * TRITANOPIA[1][1] / 100) +
-                          (pixel_b * TRITANOPIA[1][2] / 100))
-
-            pixel_b = int((pixel_r * TRITANOPIA[2][0] / 100) +
-                          (pixel_g * TRITANOPIA[2][1] / 100) +
-                          (pixel_b * TRITANOPIA[2][2] / 100))
-
-            # Adds the color-adjusted pixel to the output surface
-            img_tritanopia.set_at((x, y), (pixel_r, pixel_g, pixel_b))
-            
-
-# Adjust color values by appropriate matrix (TRITANOMALY)
-def tritanomaly():
-    for x in range(img.get_width()):
-        for y in range(img.get_height()):
-            pixel_input = img.get_at((x, y))
-            
-            pixel_r = pixel_input[0]
-            pixel_g = pixel_input[1]
-            pixel_b = pixel_input[2]
-
-            # Adjusts the RGB values of each individual pixel to the RGB values of the correct impairment
-            pixel_r = int((pixel_r * TRITANOMALY[0][0] / 100) +
-                          (pixel_g * TRITANOMALY[0][1] / 100) +
-                          (pixel_b * TRITANOMALY[0][2] / 100))
-
-            pixel_g = int((pixel_r * TRITANOMALY[1][0] / 100) +
-                          (pixel_g * TRITANOMALY[1][1] / 100) +
-                          (pixel_b * TRITANOMALY[1][2] / 100))
-
-            pixel_b = int((pixel_r * TRITANOMALY[2][0] / 100) +
-                          (pixel_g * TRITANOMALY[2][1] / 100) +
-                          (pixel_b * TRITANOMALY[2][2] / 100))
-
-            # Adds the color-adjusted pixel to the output surface
-            img_tritanomaly.set_at((x, y), (pixel_r, pixel_g, pixel_b))
-
-
-# Adjust color values by appropriate matrix (ACHROMATOPSIA)
-def achromatopsia():
-    for x in range(img.get_width()):
-        for y in range(img.get_height()):
-            pixel_input = img.get_at((x, y))
-            
-            pixel_r = pixel_input[0]
-            pixel_g = pixel_input[1]
-            pixel_b = pixel_input[2]
-
-            # Adjusts the RGB values of each individual pixel to the RGB values of the correct impairment
-            pixel_r = int((pixel_r * ACHROMATOPSIA[0][0] / 100) +
-                          (pixel_g * ACHROMATOPSIA[0][1] / 100) +
-                          (pixel_b * ACHROMATOPSIA[0][2] / 100))
-
-            pixel_g = int((pixel_r * ACHROMATOPSIA[1][0] / 100) +
-                          (pixel_g * ACHROMATOPSIA[1][1] / 100) +
-                          (pixel_b * ACHROMATOPSIA[1][2] / 100))
-
-            pixel_b = int((pixel_r * ACHROMATOPSIA[2][0] / 100) +
-                          (pixel_g * ACHROMATOPSIA[2][1] / 100) +
-                          (pixel_b * ACHROMATOPSIA[2][2] / 100))
-
-            # Adds the color-adjusted pixel to the output surface
-            img_achromatopsia.set_at((x, y), (pixel_r, pixel_g, pixel_b))
-
-
-# Adjust color values by appropriate matrix (ACHROMATANOMALY)
-def achromatanomaly():
-    for x in range(img.get_width()):
-        for y in range(img.get_height()):
-            pixel_input = img.get_at((x, y))
-            
-            pixel_r = pixel_input[0]
-            pixel_g = pixel_input[1]
-            pixel_b = pixel_input[2]
-
-            # Adjusts the RGB values of each individual pixel to the RGB values of the correct impairment
-            pixel_r = int((pixel_r * ACHROMATANOMALY[0][0] / 100) +
-                          (pixel_g * ACHROMATANOMALY[0][1] / 100) +
-                          (pixel_b * ACHROMATANOMALY[0][2] / 100))
-
-            pixel_g = int((pixel_r * ACHROMATANOMALY[1][0] / 100) +
-                          (pixel_g * ACHROMATANOMALY[1][1] / 100) +
-                          (pixel_b * ACHROMATANOMALY[1][2] / 100))
-
-            pixel_b = int((pixel_r * ACHROMATANOMALY[2][0] / 100) +
-                          (pixel_g * ACHROMATANOMALY[2][1] / 100) +
-                          (pixel_b * ACHROMATANOMALY[2][2] / 100))
-
-            # Adds the color-adjusted pixel to the output surface
-            img_achromatanomaly.set_at((x, y), (pixel_r, pixel_g, pixel_b))
+            img_processed.set_at((x, y), (pixel_r, pixel_g, pixel_b))
 
 
 # Run image through each colorblindness adjustment
 # Save each return as a new image
 def image_processing():
-    protanopia()
-    pygame.image.save(img_protanopia, "protanopia.jpg")
-    protanomaly()
-    pygame.image.save(img_protanomaly, "protanomaly.jpg")
-    deutaranopia()
-    pygame.image.save(img_deutaranopia, "deutaranopia.jpg")
-    deutaranomaly()
-    pygame.image.save(img_deutaranomaly, "deutaranomaly.jpg")
-    tritanopia()
-    pygame.image.save(img_tritanopia, "tritanopia.jpg")
-    tritanomaly()
-    pygame.image.save(img_tritanomaly, "tritanomaly.jpg")
-    achromatopsia()
-    pygame.image.save(img_achromatopsia, "achromatopsia.jpg")
-    achromatanomaly()
-    pygame.image.save(img_achromatanomaly, "achromatanomaly.jpg")
+    colorblind(PROTANOPIA)
+    pygame.image.save(img_processed, "protanopia.jpg")
+    colorblind(PROTANOMALY)
+    pygame.image.save(img_processed, "protanomaly.jpg")
+    colorblind(DEUTERANOPIA)
+    pygame.image.save(img_processed, "deutaranopia.jpg")
+    colorblind(DEUTERANOMALY)
+    pygame.image.save(img_processed, "deutaranomaly.jpg")
+    colorblind(TRITANOPIA)
+    pygame.image.save(img_processed, "tritanopia.jpg")
+    colorblind(TRITANOMALY)
+    pygame.image.save(img_processed, "tritanomaly.jpg")
+    colorblind(ACHROMATOPSIA)
+    pygame.image.save(img_processed, "achromatopsia.jpg")
+    colorblind(ACHROMATANOMALY)
+    pygame.image.save(img_processed, "achromatanomaly.jpg")
 
 
 # Copies original image onto display
@@ -288,7 +98,15 @@ image_processing()
 
 
 while running:
-    # Updates the display window
+    # Updates the display window with a new window every second
+    time.sleep(1)
+    main_window.blit(pygame.image.load(processed_images[image_to_show]).convert(), (0, 0))
+    # Cycles through the length of the list
+    if image_to_show < len(processed_images) - 1:
+        image_to_show += 1
+    else:
+        image_to_show = 0
+
     pygame.display.update()
     # Tracks every event that happens while the program is running
     for event in pygame.event.get():

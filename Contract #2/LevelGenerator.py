@@ -1,6 +1,9 @@
 import pygame
 import LevelMaps as LM
-
+#
+# You want the level generated randomly so you need to import the 'random module'
+# Then create a new variable to hold which tilemap you're going to show
+#
 cell_width = 5
 cell_height = 5
 cell_size = 32
@@ -18,6 +21,10 @@ while map_show:
 
     for row in range(cell_height):
         for column in range(cell_width):
+            #
+            # Using the random module, give the new variable one of the tilemaps, then instead of
+            # 'LM.tilemap_solid you should be able to put that variable
+            #
             map_display.blit(LM.textures[LM.tilemap_solid[row][column]], (column*cell_size, row*cell_size))
     pygame.display.update()
 

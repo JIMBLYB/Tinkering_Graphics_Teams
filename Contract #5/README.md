@@ -17,4 +17,4 @@ The project **requires** the **pygame** module installed on whichever environmen
 ## Usage
 Put an image named "_pic.jpg_" into the same directory as the python script, then run the script. There is a default 'pic.jpg', that will need to be saved over if you want to use your own image. If it worked then it should open a pygame window with the image you saved shown on it. The output images are saved to the same directory as the original image
 ## Credit
-Credit to _Christopher Robertson_ (**Koltonix**)[https://github.com/Koltonix] for _"pic.jpg"_
+Credit to _Christopher Robertson_ [**Koltonix**](https://github.com/Koltonix) for _"pic.jpg"_

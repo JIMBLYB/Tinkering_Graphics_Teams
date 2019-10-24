@@ -76,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1571859202375</updated>
       <workItem from="1571859204757" duration="6732000" />
-      <workItem from="1571919067986" duration="4061000" />
+      <workItem from="1571919067986" duration="10812000" />
     </task>
     <servers />
   </component>
@@ -95,6 +95,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Contract__2$LevelGenerator.coverage" NAME="LevelGenerator Coverage Results" MODIFIED="1571925386108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Contract__2$LevelGenerator.coverage" NAME="LevelGenerator Coverage Results" MODIFIED="1571933730320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

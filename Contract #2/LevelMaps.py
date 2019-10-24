@@ -1,5 +1,5 @@
 import pygame
-
+# Colour of the background which represents the sky.
 background_colour = (178, 216, 230)
 
 brick = 0
@@ -9,7 +9,7 @@ shrine = 3
 air = 4
 grass = 5
 wood = 6
-
+# Loads all images that are currently in the program folder.
 textures = {
     brick: pygame.image.load('Stone.png'),
     water: pygame.image.load('Water.png'),
@@ -19,7 +19,7 @@ textures = {
     grass: pygame.image.load('Grass.png'),
     wood: pygame.image.load('Wood.png')
 }
-
+# A variety of different tile maps that give the level random generation.
 tilemap_normal = [
     [air, air, air, air, air],
     [air, air, air, air, air],
@@ -37,8 +37,8 @@ tilemap_pit = [
 ]
 
 tilemap_solid = [
-    [brick, brick, brick, brick, brick],
-    [brick, brick, brick, brick, brick],
+    [air, grass, grass, grass, air],
+    [grass, brick, brick, brick, grass],
     [brick, brick, brick, brick, brick],
     [brick, brick, brick, brick, brick],
     [brick, brick, brick, brick, brick]
@@ -65,5 +65,7 @@ tilemap_well = [
     [air, air, air, air, air],
     [grass, grass, water, water, grass],
     [brick, brick, water, water, brick],
-    [brick, brick, water, water, brick]
+    [brick, brick, brick, brick, brick]
 ]
+# Puts the tilemaps into another array so it can be randomised in the other script.
+all_tilemaps = [tilemap_normal, tilemap_pit, tilemap_platform, tilemap_shrine, tilemap_solid, tilemap_well]

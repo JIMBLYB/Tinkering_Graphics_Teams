@@ -10,6 +10,7 @@ main_window = pygame.display.set_mode((1, 1))
 # Imports the image and converts it to prevent reading errors
 img = pygame.image.load("pic.jpg").convert()
 main_window = pygame.display.set_mode((img.get_width(), img.get_height()))
+pygame.display.set_caption("Simulating Colourblindness")
 
 # Initialises the variable for the processed images with the unedited image
 img_processed = img

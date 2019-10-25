@@ -7,7 +7,7 @@ This repositiory is a collection of multiple projects as part of the COM120 modu
 
 ## Instructions
 
-### Platform Level Generator
+### Platform Level Generator - Contract 2, Kalvin Malloch
 The user must open both scripts and import pygame. When they run the LevelGeneration script, they will be prompted to input a width and height of the level. Do so, and then the level will open in a new window.
 
 ### Platformer Entity Reskinning - Contract 3, Joseph Broughton

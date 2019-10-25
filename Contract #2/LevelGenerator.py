@@ -10,8 +10,8 @@ cell_size = 32
 current_dist_apart = 0
 y_dist_apart = 0
 # The size of the screen determines how big the level shall be.
-SCREEN_X = input("Enter the width of the level.")
-SCREEN_Y = input("Enter the height of the level.")
+SCREEN_X = int(input("Enter the width of the level."))
+SCREEN_Y = int(input("Enter the height of the level."))
 # Initialises pygame and sets the screen size that was determined by the player input.
 pygame.init()
 map_display = pygame.display.set_mode((SCREEN_X, SCREEN_Y))

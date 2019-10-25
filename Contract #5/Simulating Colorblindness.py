@@ -4,6 +4,7 @@ pygame.init()
 
 # Initialises the variable used for the main game loop
 running = True
+
 # Creates a display object
 main_window = pygame.display.set_mode((1, 1))
 # Imports the image and converts it to prevent reading errors
@@ -13,9 +14,9 @@ main_window = pygame.display.set_mode((img.get_width(), img.get_height()))
 # Initialises the variable for the processed images with the unedited image
 img_processed = img
 # List of processed images to cycle through and the number to show each time
-image_to_show = 0
 processed_images = ["pic.jpg", "protanopia.jpg", "protanomaly.jpg", "deutaranopia.jpg", "deutaranomaly.jpg", "tritanopia.jpg",
                     "tritanomaly.jpg", "achromatopsia.jpg", "achromatanomaly.jpg"]
+image_to_show = 0
 
 # Non-colorblind value
 NORMAL = [[100, 0, 0], [0, 100, 0], [0, 0, 100]]
@@ -43,7 +44,12 @@ ACHROMATANOMALY = [[61.8, 32, 6.2], [16.3, 77.5,  6.2], [16.3, 32.0, 51.6]]
 
 # Adjusts colour values by appropriate matrix (PROTANOPIA)
 def colorblind(colour_matrix):
-    # Runs indented code for every pixel of the input image
+    """Takes img and creates a new surface with the same img after the values are changed to simulate colorblindness.
+
+    Keyword arguments:
+    colour_matrix -- the matrix of the colorblindness type to simulate
+    """
+
     for x in range(img.get_width()):
         for y in range(img.get_height()):
             # Gets the RGB colour value of the pixel
@@ -74,6 +80,8 @@ def colorblind(colour_matrix):
 # Run image through each colorblindness adjustment
 # Save each return as a new image
 def image_processing():
+    """Takes img and creates new jpg files for each type of colorblindness"""
+
     colorblind(PROTANOPIA)
     pygame.image.save(img_processed, "protanopia.jpg")
     colorblind(PROTANOMALY)

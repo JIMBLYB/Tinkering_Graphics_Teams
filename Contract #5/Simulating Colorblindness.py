@@ -93,24 +93,9 @@ def image_processing():
     """
 
     for file_name, color_matrix in processing.items():
+        print(file_name, color_matrix)
         colorblind(color_matrix)
         pygame.image.save(img_processed, file_name)
-    colorblind(PROTANOPIA)
-    pygame.image.save(img_processed, "protanopia.jpg")
-    colorblind(PROTANOMALY)
-    pygame.image.save(img_processed, "protanomaly.jpg")
-    colorblind(DEUTERANOPIA)
-    pygame.image.save(img_processed, "deutaranopia.jpg")
-    colorblind(DEUTERANOMALY)
-    pygame.image.save(img_processed, "deutaranomaly.jpg")
-    colorblind(TRITANOPIA)
-    pygame.image.save(img_processed, "tritanopia.jpg")
-    colorblind(TRITANOMALY)
-    pygame.image.save(img_processed, "tritanomaly.jpg")
-    colorblind(ACHROMATOPSIA)
-    pygame.image.save(img_processed, "achromatopsia.jpg")
-    colorblind(ACHROMATANOMALY)
-    pygame.image.save(img_processed, "achromatanomaly.jpg")
 
 
 # Copies original image onto display

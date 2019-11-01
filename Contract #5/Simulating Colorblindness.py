@@ -37,15 +37,15 @@ ACHROMATANOMALY = [[61.8, 32, 6.2], [16.3, 77.5,  6.2], [16.3, 32.0, 51.6]]
 # Initialises the variable for the processed images with the unedited image
 img_processed = img
 # List of processed images to cycle through and the number to show each time
-processing = {"Original": "pic.jpg",
-              PROTANOPIA: "protanopia.jpg",
-              PROTANOMALY: "protanomaly.jpg",
-              DEUTERANOPIA: "deutaranopia.jpg",
-              DEUTERANOMALY: "deutaranomaly.jpg",
-              TRITANOPIA: "tritanopia.jpg",
-              TRITANOMALY: "tritanomaly.jpg",
-              ACHROMATOPSIA: "achromatopsia.jpg",
-              ACHROMATANOMALY: "achromatanomaly.jpg"}
+processing = {"pic.jpg": NORMAL,
+              "protanopia.jpg": PROTANOPIA,
+              "protanomaly.jpg": PROTANOMALY,
+              "deutaranopia.jpg": DEUTERANOPIA,
+              "deutaranomaly.jpg": DEUTERANOMALY,
+              "tritanopia.jpg": TRITANOPIA,
+              "tritanomaly.jpg": TRITANOMALY,
+              "achromatopsia.jpg": ACHROMATOPSIA,
+              "achromatanomaly.jpg": ACHROMATANOMALY}
 image_to_show = 0
 
 
@@ -92,8 +92,9 @@ def image_processing():
     Calls the "colorblind function" for each of the color matrices in the "processing" dictionary
     """
 
-    for color_matrix in processing:
-        print(color_matrix)
+    for file_name, color_matrix in processing.items():
+        colorblind(color_matrix)
+        pygame.image.save(img_processed, file_name)
     colorblind(PROTANOPIA)
     pygame.image.save(img_processed, "protanopia.jpg")
     colorblind(PROTANOMALY)
@@ -120,7 +121,7 @@ image_processing()
 while running:
     # Updates the display window with a new window every second
     time.sleep(1)
-    main_window.blit(pygame.image.load(processing[image_to_show]).convert(), (0, 0))
+    # main_window.blit(pygame.image.load(list(processing[image_to_show])).convert(), (0, 0))
     # Cycles through the length of the list
     if image_to_show < len(processing) - 1:
         image_to_show += 1

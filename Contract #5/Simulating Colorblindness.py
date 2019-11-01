@@ -10,6 +10,7 @@ main_window = pygame.display.set_mode((1, 1))
 # Imports the image and converts it to prevent reading errors
 img = pygame.image.load("pic.jpg").convert()
 main_window = pygame.display.set_mode((img.get_width(), img.get_height()))
+pygame.display.set_caption("Simulating Colourblindness")
 
 # Red blind
 PROTANOPIA = [[56.667, 43.333, 0], [55.833, 44.167, 0], [0, 24.167, 75.833]]

@@ -33,7 +33,7 @@ ACHROMATANOMALY = [[61.8, 32, 6.2], [16.3, 77.5,  6.2], [16.3, 32.0, 51.6]]
 
 # Initialises the variable for the processed images with the unedited image
 img_processed = img
-# List of processed images to cycle through and the number to show each time
+# Dictionary of every colour matrix using the output file name as a key
 processing = {"protanopia.jpg": PROTANOPIA,
               "protanomaly.jpg": PROTANOMALY,
               "deutaranopia.jpg": DEUTERANOPIA,
@@ -42,6 +42,9 @@ processing = {"protanopia.jpg": PROTANOPIA,
               "tritanomaly.jpg": TRITANOMALY,
               "achromatopsia.jpg": ACHROMATOPSIA,
               "achromatanomaly.jpg": ACHROMATANOMALY}
+
+# The list and int variables required to iterate through the images shown in the game window
+processing_keys = []
 image_to_show = 0
 
 
@@ -89,7 +92,6 @@ def image_processing():
     """
 
     for file_name, color_matrix in processing.items():
-        print(file_name, color_matrix)
         colorblind(color_matrix)
         pygame.image.save(img_processed, file_name)
 
@@ -98,13 +100,16 @@ def image_processing():
 main_window.blit(img, (0, 0))
 image_processing()
 
+# Appends every key in the "processing" dictionary to the "processing_keys" variable
+for key in processing.keys():
+    processing_keys.append(key)
 
 while running:
-    # Updates the display window with a new window every second
+    # Updates the display window every second with each processed image in sequence
     time.sleep(1)
-    # main_window.blit(pygame.image.load(list(processing[image_to_show])).convert(), (0, 0))
+    main_window.blit(pygame.image.load(processing_keys[image_to_show]).convert(), (0, 0))
     # Cycles through the length of the list
-    if image_to_show < len(processing) - 1:
+    if image_to_show < len(processing_keys) - 1:
         image_to_show += 1
     else:
         image_to_show = 0

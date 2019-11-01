@@ -11,9 +11,6 @@ main_window = pygame.display.set_mode((1, 1))
 img = pygame.image.load("pic.jpg").convert()
 main_window = pygame.display.set_mode((img.get_width(), img.get_height()))
 
-# Non-colorblind value
-NORMAL = [[100, 0, 0], [0, 100, 0], [0, 0, 100]]
-
 # Red blind
 PROTANOPIA = [[56.667, 43.333, 0], [55.833, 44.167, 0], [0, 24.167, 75.833]]
 # Red weakness
@@ -37,8 +34,7 @@ ACHROMATANOMALY = [[61.8, 32, 6.2], [16.3, 77.5,  6.2], [16.3, 32.0, 51.6]]
 # Initialises the variable for the processed images with the unedited image
 img_processed = img
 # List of processed images to cycle through and the number to show each time
-processing = {"pic.jpg": NORMAL,
-              "protanopia.jpg": PROTANOPIA,
+processing = {"protanopia.jpg": PROTANOPIA,
               "protanomaly.jpg": PROTANOMALY,
               "deutaranopia.jpg": DEUTERANOPIA,
               "deutaranomaly.jpg": DEUTERANOMALY,

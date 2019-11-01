@@ -11,13 +11,6 @@ main_window = pygame.display.set_mode((1, 1))
 img = pygame.image.load("pic.jpg").convert()
 main_window = pygame.display.set_mode((img.get_width(), img.get_height()))
 
-# Initialises the variable for the processed images with the unedited image
-img_processed = img
-# List of processed images to cycle through and the number to show each time
-processed_images = ["pic.jpg", "protanopia.jpg", "protanomaly.jpg", "deutaranopia.jpg", "deutaranomaly.jpg", "tritanopia.jpg",
-                    "tritanomaly.jpg", "achromatopsia.jpg", "achromatanomaly.jpg"]
-image_to_show = 0
-
 # Non-colorblind value
 NORMAL = [[100, 0, 0], [0, 100, 0], [0, 0, 100]]
 
@@ -41,10 +34,25 @@ ACHROMATOPSIA = [[29.9, 58.7, 11.4], [29.9, 58.7, 11.4], [29.9, 58.7, 11.4]]
 # Full Color weakness
 ACHROMATANOMALY = [[61.8, 32, 6.2], [16.3, 77.5,  6.2], [16.3, 32.0, 51.6]]
 
+# Initialises the variable for the processed images with the unedited image
+img_processed = img
+# List of processed images to cycle through and the number to show each time
+processing = {"Original": "pic.jpg",
+              PROTANOPIA: "protanopia.jpg",
+              PROTANOMALY: "protanomaly.jpg",
+              DEUTERANOPIA: "deutaranopia.jpg",
+              DEUTERANOMALY: "deutaranomaly.jpg",
+              TRITANOPIA: "tritanopia.jpg",
+              TRITANOMALY: "tritanomaly.jpg",
+              ACHROMATOPSIA: "achromatopsia.jpg",
+              ACHROMATANOMALY: "achromatanomaly.jpg"}
+image_to_show = 0
 
-# Adjusts colour values by appropriate matrix (PROTANOPIA)
+
+# Adjusts colour values by appropriate matrix
 def colorblind(colour_matrix):
-    """Takes img and creates a new surface with the same img after the values are changed to simulate colorblindness.
+    """
+    Takes img and creates a new surface with the same img after the values are changed to simulate colorblindness.
 
     Keyword arguments:
     colour_matrix -- the matrix of the colorblindness type to simulate
@@ -80,8 +88,12 @@ def colorblind(colour_matrix):
 # Run image through each colorblindness adjustment
 # Save each return as a new image
 def image_processing():
-    """Takes img and creates new jpg files for each type of colorblindness"""
+    """
+    Calls the "colorblind function" for each of the color matrices in the "processing" dictionary
+    """
 
+    for color_matrix in processing:
+        print(color_matrix)
     colorblind(PROTANOPIA)
     pygame.image.save(img_processed, "protanopia.jpg")
     colorblind(PROTANOMALY)
@@ -108,9 +120,9 @@ image_processing()
 while running:
     # Updates the display window with a new window every second
     time.sleep(1)
-    main_window.blit(pygame.image.load(processed_images[image_to_show]).convert(), (0, 0))
+    main_window.blit(pygame.image.load(processing[image_to_show]).convert(), (0, 0))
     # Cycles through the length of the list
-    if image_to_show < len(processed_images) - 1:
+    if image_to_show < len(processing) - 1:
         image_to_show += 1
     else:
         image_to_show = 0

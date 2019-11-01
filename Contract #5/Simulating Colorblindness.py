@@ -12,16 +12,6 @@ img = pygame.image.load("pic.jpg").convert()
 main_window = pygame.display.set_mode((img.get_width(), img.get_height()))
 pygame.display.set_caption("Simulating Colourblindness")
 
-# Initialises the variable for the processed images with the unedited image
-img_processed = img
-# List of processed images to cycle through and the number to show each time
-processed_images = ["pic.jpg", "protanopia.jpg", "protanomaly.jpg", "deutaranopia.jpg", "deutaranomaly.jpg", "tritanopia.jpg",
-                    "tritanomaly.jpg", "achromatopsia.jpg", "achromatanomaly.jpg"]
-image_to_show = 0
-
-# Non-colorblind value
-NORMAL = [[100, 0, 0], [0, 100, 0], [0, 0, 100]]
-
 # Red blind
 PROTANOPIA = [[56.667, 43.333, 0], [55.833, 44.167, 0], [0, 24.167, 75.833]]
 # Red weakness
@@ -42,10 +32,27 @@ ACHROMATOPSIA = [[29.9, 58.7, 11.4], [29.9, 58.7, 11.4], [29.9, 58.7, 11.4]]
 # Full Color weakness
 ACHROMATANOMALY = [[61.8, 32, 6.2], [16.3, 77.5,  6.2], [16.3, 32.0, 51.6]]
 
+# Initialises the variable for the processed images with the unedited image
+img_processed = img
+# Dictionary of every colour matrix using the output file name as a key
+processing = {"protanopia.jpg": PROTANOPIA,
+              "protanomaly.jpg": PROTANOMALY,
+              "deutaranopia.jpg": DEUTERANOPIA,
+              "deutaranomaly.jpg": DEUTERANOMALY,
+              "tritanopia.jpg": TRITANOPIA,
+              "tritanomaly.jpg": TRITANOMALY,
+              "achromatopsia.jpg": ACHROMATOPSIA,
+              "achromatanomaly.jpg": ACHROMATANOMALY}
 
-# Adjusts colour values by appropriate matrix (PROTANOPIA)
+# The list and int variables required to iterate through the images shown in the game window
+processing_keys = []
+image_to_show = 0
+
+
+# Adjusts colour values by appropriate matrix
 def colorblind(colour_matrix):
-    """Takes img and creates a new surface with the same img after the values are changed to simulate colorblindness.
+    """
+    Takes img and creates a new surface with the same img after the values are changed to simulate colorblindness.
 
     Keyword arguments:
     colour_matrix -- the matrix of the colorblindness type to simulate
@@ -81,37 +88,29 @@ def colorblind(colour_matrix):
 # Run image through each colorblindness adjustment
 # Save each return as a new image
 def image_processing():
-    """Takes img and creates new jpg files for each type of colorblindness"""
+    """
+    Calls the "colorblind function" for each of the color matrices in the "processing" dictionary
+    """
 
-    colorblind(PROTANOPIA)
-    pygame.image.save(img_processed, "protanopia.jpg")
-    colorblind(PROTANOMALY)
-    pygame.image.save(img_processed, "protanomaly.jpg")
-    colorblind(DEUTERANOPIA)
-    pygame.image.save(img_processed, "deutaranopia.jpg")
-    colorblind(DEUTERANOMALY)
-    pygame.image.save(img_processed, "deutaranomaly.jpg")
-    colorblind(TRITANOPIA)
-    pygame.image.save(img_processed, "tritanopia.jpg")
-    colorblind(TRITANOMALY)
-    pygame.image.save(img_processed, "tritanomaly.jpg")
-    colorblind(ACHROMATOPSIA)
-    pygame.image.save(img_processed, "achromatopsia.jpg")
-    colorblind(ACHROMATANOMALY)
-    pygame.image.save(img_processed, "achromatanomaly.jpg")
+    for file_name, color_matrix in processing.items():
+        colorblind(color_matrix)
+        pygame.image.save(img_processed, file_name)
 
 
 # Copies original image onto display
 main_window.blit(img, (0, 0))
 image_processing()
 
+# Appends every key in the "processing" dictionary to the "processing_keys" variable
+for key in processing.keys():
+    processing_keys.append(key)
 
 while running:
-    # Updates the display window with a new window every second
+    # Updates the display window every second with each processed image in sequence
     time.sleep(1)
-    main_window.blit(pygame.image.load(processed_images[image_to_show]).convert(), (0, 0))
+    main_window.blit(pygame.image.load(processing_keys[image_to_show]).convert(), (0, 0))
     # Cycles through the length of the list
-    if image_to_show < len(processed_images) - 1:
+    if image_to_show < len(processing_keys) - 1:
         image_to_show += 1
     else:
         image_to_show = 0
